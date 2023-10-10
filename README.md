@@ -1,1 +1,5 @@
-# DoacaoSangue
+# Página de Informações e Cadastro para Doação de Sangue
+
+Este código HTML foi desenvolvido em aula e representa uma página completa que combina informações detalhadas sobre a doação de sangue com a oportunidade de cadastro para doadores. A página oferece informações essenciais sobre a importância da doação de sangue, os requisitos para doação, quem não pode doar, o processo de doação e os diferentes tipos sanguíneos e sua compatibilidade.
+
+Os usuários podem ler sobre o processo de doação de sangue e seus benefícios, bem como os critérios e requisitos necessários para se tornarem doadores. Além disso, a página inclui um botão "Cadastre-se" na parte superior, permitindo que os visitantes se cadastrem como doadores de sangue, direcionando-os para outra página de cadastro relacionada à doação de sangue. Esta página serve como uma fonte informativa e uma ferramenta para recrutar potenciais doadores de sangue, promovendo a doação voluntária e ajudando a manter os estoques de sangue em hospitais e centros de saúde. O formulário também inclui uma função JavaScript para calcular a idade com base na data de nascimento inserida e formata automaticamente o número de telefone no formato correto à medida que o usuário digita.
