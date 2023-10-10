@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Dados do doador</h2>
+        <form>
+            <div class="form-campo">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" name="nome">
+            </div>
+            <div class="form-campo">
+                <label for="usuario">Usuário</label>
+                <input type="text" id="usuario" name="usuario">
+            </div>
+            <div class="form-campo">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha">
+            </div>
+            <div class="form-campo">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email">
+            </div>
+            <div class="form-campo">
+                <label for="telefone">Telefone</label>
+                <input type="telefone" onkeyup="mascaraFone(event);" id="telefone" name="telefone">
+            </div>
+            <div class="form-campo">
+                <label>Data de Nascimento: <span id="idade">(Idade: 18)</span><label>
+                        <input type="date" id="dataNascimento" required>
+            </div>
+            <div class="form-campo">
+                <label for="peso">Peso (Kg)</label>
+                <input type="number" id="peso" name="peso">
+            </div>
+            <div class="form-campo">
+                <label for="tipo_sanguineo">Tipo sanguíneo</label>
+                <select name="tipo_sanguineo" id="tipo_sanguineo">
+                    <option value="">Selecione</option>
+                    <option value="O">O</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="AB">AB</option>
+                </select>
+            </div>
+            <div class="form-campo">
+                <label for="fator_rh">Fator RH</label>
+                <select name="fator_rh" id="fator_rh">
+                    <option value="">Selecione</option>
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                </select>
+            </div>
+            <div class="form-campo">
+                <label for="">Sexo</label>
+                <div>
+                    <input type="radio" id="masculino" name="masculino">
+                    <label for="masculino">Masculino</label>
+                </div>
+                <div>
+                    <input type="radio" id="feminino" name="feminino">
+                    <label for="feminino">Feminino</label>
+                </div>
+            </div>
+            <div class="form-footer">
+                <fieldset>
+                    <legend>Informações Adicionais</legend>
+                    <div>
+                        <input type="checkbox" name="descanso" id="descanso">
+                        <label for="descanso">Estar descansado (ter dormido pelo menos 6 horas nas últimas 24
+                            horas)</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="alimentado" id="alimentado">
+                        <label for="alimentado">Estar alimentado, evitando alimentos gordurosos </label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="anemia" id="anemia">
+                        <label for="anemia">Não tem com anemia no teste realizado imediatamente antes da doação</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="hipertensao" id="hipertensao">
+                        <label for="hipertensao">Não tem com hipertensão ou hipotensão arterial no momento da
+                            doação</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="batimentos" id="batimentos">
+                        <label for="batimentos">Não está com aumento ou diminuição dos batimentos cardíacos no momento
+                            da doação</label>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="febre" id="febre">
+                        <label for="febre">Não está com febre no dia da doação</label>
+                    </div>
+                </fieldset>
+                <div>
+                    <label for="observacao">Observação</label>
+                    <textarea name="observacao" id="observacao" rows="15" col="30"></textarea>
+                </div>
+            </div>
+        </form>
+        <button type="submit" id="enviar">Enviar formulário</button>
+    </div>
+    <script>
+        const dateInput = document.getElementById("dataNascimento");
+
+        dateInput.addEventListener("change", (event) => {
+            calcularIdade()
+        })
+        function calcularIdade() {
+            const dataNascimento = new Date(document.getElementById("dataNascimento").value);
+            const hoje = new Date();
+
+            var diffAnos = hoje.getFullYear() - dataNascimento.getFullYear();
+            const diffMeses = hoje.getMonth() - dataNascimento.getMonth();
+
+            if (diffMeses < 0 || (diffMeses === 0 && hoje.getDate() < dataNascimento.getDate())) {
+                diffAnos--;
+            }
+
+            document.getElementById("idade").innerText = `(Idade: ${diffAnos} anos)`;
+        }
+
+        function mascaraFone(event) {
+            var valor = document.getElementById("telefone").attributes[0].ownerElement['value'];
+            var retorno = valor.replace(/\D/g, "");
+            retorno = retorno.replace(/^0/, "");
+            if (retorno.length > 10) {
+                retorno = retorno.replace(/^(\d\d)(\d{5})(\d{4}).*/, "($1) $2-$3");
+            } else if (retorno.length > 5) {
+                if (retorno.length == 6 && event.code == "Backspace") {
+                    return;
+                }
+                retorno = retorno.replace(/^(\d\d)(\d{4})(\d{0,4}).*/, "($1) $2-$3");
+            } else if (retorno.length > 2) {
+                retorno = retorno.replace(/^(\d\d)(\d{0,5})/, "($1) $2");
+            } else {
+                if (retorno.length != 0) {
+                    retorno = retorno.replace(/^(\d*)/, "($1");
+                }
+            }
+            document.getElementById("telefone").attributes[0].ownerElement['value'] = retorno;
+        }
+    </script>
+</body>
+
+</html>

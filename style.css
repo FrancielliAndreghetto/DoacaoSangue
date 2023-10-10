@@ -1,0 +1,135 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+}
+nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#cadastrar {
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    background-color: #bc1515;
+    color: #Fff;
+    border: 0;
+    cursor: pointer;
+}
+
+#cadastrar:hover {
+    background: #7c0f0f;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+ }
+
+body {
+    background-color: #f5f5f5;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 100%;
+    background: #ffffff;
+    padding: 13px 15px;
+    border-radius: 5px;
+ }
+
+ form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+ .form-campo {
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+ }
+
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: white;
+    margin: 0;
+}
+
+h2 {
+    text-align: center;
+    color: #000000;
+}
+
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="telefone"],
+input[type="number"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+fieldset {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+legend {
+    font-weight: bold;
+}
+
+.form-footer {
+    display: flex;
+    flex-direction: column;
+    width: 81%;
+}
+
+#observacao {
+    height: 140px;
+}
+
+#enviar {
+    width: 150px;
+    height: 50px;
+    text-align: center;
+    background-color: #7c0f0f;
+    color: #ffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    outline: 0;
+    margin: 0;
+}
+
+#enviar:hover {
+    background-color: #721212;
+    cursor: pointer;
+}
